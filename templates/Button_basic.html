@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Bootstrap CSS -->
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>views</title>
+
+    <style>
+          *{
+               padding: 0;
+               margin: 0;
+               box-sizing: border-box;
+           }
+
+           body{
+                background-color: #f3f3f3;
+                font-family: 'Poppins',sans,serif;
+           }
+           .menu{
+                padding: 0 10px 30px 10px;
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(350px,1fr ));
+                grid-gap: 20px 40px;
+           }
+           .heading{
+                background-color: #cb202d;
+                color: #ffffff;
+                margin-bottom: 30px;
+                padding: 30px 0;
+                grid-column: 1/-1;
+                text-align: center;
+           }
+           .heading>h1{
+                font-weight: 400;
+                font-size: 30px;
+                letter-spacing: 10px;
+                margin-bottom: 10px;
+           }
+           .heading>h3{
+                font-weight: 600;
+                font-size: 22px;
+                letter-spacing: 5px;
+           }
+           .food-items{
+                display: grid;
+                position: relative;
+                grid-template-rows: auto 3fr;
+                border-radius: 1px;
+                box-shadow: 0 0 15px rgba(0,0,0,1);
+           }
+           .food-items img{
+                position: relative;
+                width: 100%;
+                border-radius: 15px 15px 0 0;
+           }
+           h1{
+                grid-column: 1/-1;
+                text-align: center;
+           }
+           .details{
+                padding: 20px 10px;
+                display: grid;
+                grid-template-rows: auto 1fr 50px;
+
+           }
+           .details-sub{
+                display: grid;
+                grid-template-columns: auto auto;
+           }
+           .details-sub>h5{
+                font-weight: 600;
+                font-size: 18px;
+           }
+           .price{
+                text-align: right;
+           }
+           .details>p{
+                color: #6f6f6f;
+                font-size: 15px;
+                line-height: 28px;
+                font-weight: 400;
+                align-self: stretch;
+           }
+           .button{
+                background-color: #cb202d;
+                border: none;
+                color: #ffffff;
+                font-size: 16px;
+                font-weight: 600;
+                border-radius: 5px;
+                width: 180px;
+           }
+    </style>
+
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">Bakers Gallery</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </nav>
+
+
+  <div class="menu">
+      <div class="heading">
+          <h1>{% block headline %} {% endblock headline %}</h1>
+          <h3>&mdash;MENU &mdash;</h3>
+      </div>
+
+{% for dests in dests %}
+      <div class="food-items">
+          <img src={{dests.img.url}} style="height:400px;">
+          <div class="details">
+              <div class="details-sub">
+                  <h5>{{dests.product_name}}</h5>
+                  <h5 class="prize">Rs {{dests.price}}</h5>
+              </div>
+              <p>{{dests.des}}</p>
+              <a href="checkout" class="button"><button class="button">Buy</button></a>
+                    <!-- give style none-->
+          </div>
+      </div>
+      {% endfor %}
+  </div>
+
+  </body>
+</html>
+
