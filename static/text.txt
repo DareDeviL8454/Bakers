@@ -1,0 +1,3 @@
+Hello,
+ You are Inside Static Directory
+ Congradulations.....
