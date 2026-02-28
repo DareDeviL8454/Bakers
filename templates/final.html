@@ -4,12 +4,7 @@
 
 {% block body %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Confirmation</title>
-    <style>
+<style>
 .card {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
@@ -24,19 +19,12 @@
   padding: 2px 16px;
 }
 </style>
-</head>
-<body>
-    <div class="card"  style="height:300px; width:300px; margin-left:520px; margin-top:30px;">
-  <img src="/static/confirm/confirm.jpg" alt="Avatar" style="width:100%">
 
-        <br>
-
-  <div class="container" style="padding-left:72px">
+<div class="card" style="height:300px; width:300px; margin:30px auto;">
+  <img src="{% static 'confirm/confirm.jpg' %}" alt="Confirm" style="width:100%">
+  <div class="container" style="text-align:center;">
     <h4><b>Order Confirm !!!</b></h4>
-
   </div>
-
 </div>
-</body>
-</html>
+
 {% endblock %}
